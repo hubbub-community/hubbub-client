@@ -1,0 +1,15 @@
+{
+  "extends": [
+    "tslint:recommended",
+    "tslint-eslint-rules",
+    "tslint-react",
+    "tslint-config-prettier"
+  ],
+  "linterOptions": { "exclude": ["build", "coverage", "node_modules"] },
+  "rulesDirectory": ["tslint-eslint-rules", "tslint-plugin-prettier"],
+  "rules": {
+    "interface-name": true,
+    "no-console": false,
+    "prettier": [true, "./.prettierrc.js"]
+  }
+}
