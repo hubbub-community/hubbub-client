@@ -1,5 +1,5 @@
 import React from 'react'
 
-const D = () => <div>D</div>
+const Smile = () => <div>:-D</div>
 
-export default D
+export default Smile

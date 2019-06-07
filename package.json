@@ -7,10 +7,12 @@
   "main": "index.js",
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "build": "react-scripts build; npm run doc",
+    "test": "react-scripts test --coverage",
+    "test-with-coverage": "react-scripts test --coverage && cat ./coverage/lcov.info | codacy-coverage --token d41b9de94e97435097295890c4564d05",
     "eject": "react-scripts eject",
-    "lint": "tslint -c tslint.json 'src/**/*.{tx,tsx}'"
+    "lint": "tslint -c tslint.json 'src/**/*.{tx,tsx}'",
+    "doc": "rm -rf 'docs/*'; npx typedoc --mode 'file' --out 'docs/'; cp -r 'docs' 'build/'"
   },
   "repository": {
     "type": "git",
@@ -42,21 +44,23 @@
     "@types/node": "^12.0.7",
     "@types/react": "^16.8.19",
     "@types/react-dom": "^16.8.4",
+    "codacy-coverage": "^3.4.0",
     "husky": "^2.4.0",
     "lint-staged": "^8.2.0",
-    "prettier": "^1.18.0",
+    "prettier": "^1.18.2",
     "react-scripts": "^3.0.1",
     "tslint": "^5.17.0",
     "tslint-config-prettier": "^1.18.0",
     "tslint-eslint-rules": "^5.4.0",
     "tslint-plugin-prettier": "^2.0.1",
     "tslint-react": "^4.0.0",
+    "typedoc": "^0.14.2",
     "typescript": "^3.5.1"
   },
   "husky": {
     "hooks": {
       "pre-commit": "export CI=true && npm run build && lint-staged && npm run test",
-      "pre-push": "export CI=true && npm run build && lint-staged && npm run test"
+      "pre-push": "export CI=true && npm run build && lint-staged && npm run test-with-coverage"
     }
   },
   "lint-staged": {
