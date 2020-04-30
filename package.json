@@ -48,7 +48,7 @@
     "@types/socket.io-client": "^1.4.32",
     "codacy-coverage": "^3.4.0",
     "husky": "^3.0.0",
-    "lint-staged": "^9.0.0",
+    "lint-staged": "^10.2.1",
     "prettier": "^1.18.2",
     "react-scripts": "^3.0.1",
     "tslint": "^5.17.0",
