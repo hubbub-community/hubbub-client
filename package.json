@@ -36,6 +36,7 @@
     ]
   },
   "dependencies": {
+    "@auth0/auth0-spa-js": "^1.0.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "socket.io-client": "^2.2.0"

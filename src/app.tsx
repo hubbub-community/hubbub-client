@@ -1,7 +1,7 @@
 import React, { Component, FormEvent, ReactNode } from 'react'
 import io from 'socket.io-client'
+import NavBar from './components/navbar'
 
-import logo from './resources/logo.svg'
 import './styles/app.css'
 
 const server: string =
@@ -26,7 +26,7 @@ class App extends Component<{}, IState> {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+          <NavBar />
           <p>Client connected to {server}...</p>
           <p>{this.state.output}</p>
           <p>{this.state.msg}</p>
@@ -44,18 +44,18 @@ class App extends Component<{}, IState> {
       </div>
     )
   }
-  private update = (output: string): void => {
+  public update = (output: string): void => {
     this.setState({ output })
   }
-  private handleChange = (e: FormEvent<HTMLInputElement>): void => {
+  public handleChange = (e: FormEvent<HTMLInputElement>): void => {
     const input = e.currentTarget.value
     this.setState({ input })
   }
-  private handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
+  public handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault()
     this.handleLine(this.state.input)
   }
-  private handleLine = (line: string): void => {
+  public handleLine = (line: string): void => {
     if (line[0] === '/' && line.length > 1) {
       const launch = /^\/launch/gi
       if (launch.test(line)) {
